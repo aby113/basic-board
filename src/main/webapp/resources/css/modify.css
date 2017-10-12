@@ -1,0 +1,47 @@
+textarea {
+	position: relative;
+	right: 221px;
+	bottom: 15px;
+}
+
+label {
+	position: relative;
+	bottom: 70px;
+}
+
+article .header {
+	margin-bottom: 10px;
+}
+
+article {
+	position: absolute;
+	top: 80px;
+	left: 300px;
+	width: 70%;
+}
+
+section {
+	float: right;
+	width: 88%;
+	height: 1000px;
+	background-color: white;
+}
+
+div.footer {
+	float: right;
+	position: absolute;
+	left: 518px;
+}
+
+label {
+	font-size: 15px;
+	margin-right: 2px;
+	position: relative;
+	right: 258px;
+	top: 44px;
+}
+
+pre {
+	margin: 0px;
+	height: 130px;
+}

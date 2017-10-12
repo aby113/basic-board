@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+  <script	src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script>
+    <link rel="stylesheet" href="resources/css/board.css">
+    <link rel="stylesheet" href="resources/css/write.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+  <div id="wrap">
+    <header class="header">
+        <nav>
+
+            <a href="#">HOME</a>
+            <a href="#">toyProject#board</a>
+            <span id="loginBox">
+              <input type="text" id="email" placeholder="email">
+              <input type="text" name="" id="password" placeholder="비밀번호">
+              <button id="loginBtn">로그인</button>
+            </span>
+
+        </nav>
+    </header>
+    <nav class="side">
+        <div id="linkbox">
+            <a href="#">회원게시판</a>
+        </div>
+    </nav>
+    <section>
+      <header></header>
+      <article class="">
+        <div class="header">
+            <div class="">
+              제목 <input type="text" name="title" id="" class="title">
+            </div>
+        </div>
+        <div class="content">
+          <label for="">내용</label><textarea name="content" rows="8" cols="80"></textarea>
+        </div>
+        <div class="footer">
+            <div class="btnGroup">
+                  <button class="listBtn">목록</button>
+                  <button class="writeBtn">글작성</button>
+            </div>
+            </div>
+      </article>
+
+    </section>
+</div>
+<script type="text/javascript">
+$(function(){
+  $(".listBtn").on("click", function(){
+          location.href="file:///C:/Users/Andaehyun/Desktop/project/toyProject/test/list.html"
+  });
+});
+</script>
+</body>
+</html>

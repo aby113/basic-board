@@ -1,0 +1,32 @@
+#wrap{
+  margin: 0px;
+  padding: 0px;
+}
+header.header{
+  background-color: black;
+  height: 50px;
+  width: 100%;
+}
+header nav{
+  padding: 10px;
+}
+header nav a{
+  margin: 10px;
+}
+nav.side{
+  padding-top: 50px;
+  float: left;
+  width: 12%;
+  height: 800px;
+  background-color: red;
+}
+div#linkbox{
+  position: relative;
+  left: 15px;
+}
+span#loginBox{
+  float: right;
+}
+a{
+  text-decoration: none;
+}

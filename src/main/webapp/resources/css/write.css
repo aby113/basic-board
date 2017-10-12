@@ -1,0 +1,31 @@
+textarea{
+  position: relative;
+  left: 6px;
+}
+label{
+  position: relative;
+  bottom: 70px;
+}
+article .header{
+  margin-bottom: 10px;
+}
+article{
+  position: absolute;
+  top: 80px;
+  left: 300px;
+  width: 70%;
+}
+section{
+  float: right;
+  width: 88%;
+  height: 1000px;
+  background-color: white;
+}
+div.footer{
+  float: right;
+  position: absolute;
+  left: 518px;
+}
+input.title{
+	    margin-left: 5px;
+}
