@@ -9,9 +9,11 @@
 	<header></header>
 	<article class="">
 		<form action="<c:url value='/board/modify' />" method="post">
-			<input type="hidden" name="bno" value="${boardVO.bno}">
-			<input type="hidden" name="page" value="${cri.page}">
-			<input type="hidden" name="perPageNum" value="${cri.perPageNum}">
+			<input type="hidden" name="bno" value="${boardVO.bno}"> <input
+				type="hidden" name="searchType" value="${cri.searchType}"> <input
+				type="hidden" name="keyword" value="${cri.keyword}"> <input
+				type="hidden" name="page" value="${cri.page}"> <input
+				type="hidden" name="perPageNum" value="${cri.perPageNum}">
 			<div class="header">
 				<div class="">
 					제목 <input type="text" name="title" id="" class="title"
@@ -27,7 +29,7 @@
 			</div>
 			<div class="footer">
 				<div class="btnGroup">
-					<button class="listBtn">목록</button>
+					<button class="readBtn">목록</button>
 					<input type="submit" value="수정" />
 				</div>
 			</div>
@@ -38,6 +40,17 @@
 <c:import url="../template/footer.jsp" />
 <script type="text/javascript">
 	$(function() {
+
+		$(".readBtn").on(
+				"click",
+				function() {
+
+					var url = contextPath + "/board/readPage?"
+							+ makeQuery(searchType, keyword, page, perPageNum)
+							+ "&bno=" + bno;
+					location.href = url;
+
+				});
 
 	});
 </script>

@@ -10,6 +10,8 @@ var contextPath = "${pageContext.request.contextPath}";
 var bno = "${boardVO.bno}";
 var page = "${cri.page}";
 var perPageNum = "${cri.perPageNum}";
+var searchType = "${cri.searchType}";
+var keyword = "${cri.keyword}";
 </script>
 <script
 	src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script>
@@ -29,7 +31,7 @@ var perPageNum = "${cri.perPageNum}";
 		<header class="header">
 			<nav>
 
-				<a href="#">HOME</a> <a href="#">toyProject#board</a> <span
+				<a href="#">HOME</a> <a href="<c:url value='/board/listPage'/>">toyProject#board</a> <span
 					id="loginBox"> <input type="text" id="email"
 					placeholder="email"> <input type="text" name=""
 					id="password" placeholder="비밀번호">
@@ -40,6 +42,6 @@ var perPageNum = "${cri.perPageNum}";
 		</header>
 		<nav class="side">
 			<div id="linkbox">
-				<a href="#">회원게시판</a>
+				<a href="<c:url value='/board/listPage'/>">회원게시판</a>
 			</div>
 		</nav>

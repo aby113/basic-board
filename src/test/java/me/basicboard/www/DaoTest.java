@@ -4,7 +4,6 @@ import java.util.List;
 
 import javax.inject.Inject;
 
-import org.apache.ibatis.session.SqlSession;
 import org.junit.Before;
 import org.junit.Ignore;
 import org.junit.Test;
@@ -23,8 +22,6 @@ import me.basicboard.www.persistence.BoardMapper;
 @Log
 public class DaoTest {
 
-	@Inject
-	private SqlSession session;
 	
 	@Inject
 	private BoardMapper boardMapper; 
@@ -71,9 +68,22 @@ public class DaoTest {
 	
 	@Test
 	public void testCount()throws Exception{
-		int result=boardMapper.getBoardCount();
+		int result=boardMapper.getBoardCount(cri);
 		log.info(result + "");
 	}
+	
+	@Test
+	public void testSearList()throws Exception{
+		cri.setSearchType("t");
+		cri.setKeyword("title100");
+		List<BoardVO> list = boardMapper.getSearchBasicBoardList(cri);
+		
+		for(BoardVO vo : list){
+			log.info(vo.toString());
+		}
+		
+	}
+	
 	
 	@Test
 	@Ignore

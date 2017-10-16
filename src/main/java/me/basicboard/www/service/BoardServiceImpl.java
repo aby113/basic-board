@@ -47,9 +47,15 @@ public class BoardServiceImpl implements BoardService {
 	}
 
 	@Override
-	public int getBoardCount() throws Exception {
+	public int getBoardCount(Criteria cri) throws Exception {
 		// TODO Auto-generated method stub
-		return boardMapper.getBoardCount();
+		return boardMapper.getBoardCount(cri);
+	}
+
+	@Override
+	public List<BoardVO> listSearchCri(Criteria cri) throws Exception {
+		// TODO Auto-generated method stub
+		return boardMapper.getSearchBasicBoardList(cri);
 	}
 
 }

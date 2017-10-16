@@ -4,7 +4,8 @@
 	"http://mybatis.org/dtd/mybatis-3-config.dtd">
 <configuration>
 	<typeAliases>
-		<package name="  " />
+		<typeAlias alias="cri" type="me.basicboard.www.domain.Criteria" />
+		<typeAlias alias="boardVO" type="me.basicboard.www.domain.BoardVO" />
 	</typeAliases>
 
 </configuration>

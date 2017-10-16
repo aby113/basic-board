@@ -40,12 +40,13 @@ $(function(){
         if(result == true){
         	var url = contextPath + "/board/remove";
         	var $formObj = $("<form></form>");
-        	var paramNames = ["bno", "page", "perPageNum"];
-        	var inpsVal = [bno, page, perPageNum];
+        	var paramNames = ["bno", "searchType", "keyword", "page", "perPageNum"];
+        	var inpsVal = [bno, searchType, keyword, page, perPageNum];
+        	
         	$formObj.attr("action", url);
         	$formObj.attr("method", "post");
         	$formObj.appendTo("section");
-    		for(var i = 0; i < 3; i++){
+    		for(var i = 0; i < inpsVal.length; i++){
     			var $inps = $("<input type='hidden' />").clone();
     			$inps.attr("name", paramNames[i]);
     			$inps.val(inpsVal[i]);

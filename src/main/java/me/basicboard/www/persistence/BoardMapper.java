@@ -5,6 +5,7 @@ import java.util.List;
 import org.apache.ibatis.annotations.Delete;
 import org.apache.ibatis.annotations.Insert;
 import org.apache.ibatis.annotations.Select;
+import org.apache.ibatis.annotations.SelectProvider;
 import org.apache.ibatis.annotations.Update;
 
 import me.basicboard.www.domain.BoardVO;
@@ -20,8 +21,8 @@ public interface BoardMapper {
 	@Select("SELECT * FROM basicboard WHERE bno = #{bno}")
 	public BoardVO getBasicboard(Integer bno)throws Exception;
 	
-	@Select("SELECT COUNT(*) FROM basicboard")
-	public int getBoardCount()throws Exception;
+	@SelectProvider(type=SampleProvider.class, method="searchCount")
+	public int getBoardCount(Criteria cri)throws Exception;
 	
 	@Insert("INSERT INTO basicboard(title, writer, content) values(#{title}, #{writer}, #{content})")
 	public void insertBasicboard(BoardVO boardVO)throws Exception;
@@ -32,6 +33,13 @@ public interface BoardMapper {
 	
 	@Delete("DELETE FROM basicboard WHERE bno = #{bno}")
 	public void deleteBasicboard(Integer bno)throws Exception;
+	
+	//public List<BoardVO> getSearchBasicBoardList(Criteria cri)throws Exception;
+	@SelectProvider(type=SampleProvider.class, method = "search")
+	public List<BoardVO> getSearchBasicBoardList(Criteria cri)throws Exception;
+	
+	
+	
 	
 	
 }

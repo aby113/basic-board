@@ -28,9 +28,9 @@ public class BoardContoller {
 		
 		PageMaker pageMaker = new PageMaker();
 		pageMaker.setCri(cri);
-		pageMaker.setTotalCount(boardService.getBoardCount());
+		pageMaker.setTotalCount(boardService.getBoardCount(cri));
 		
-		model.addAttribute("list", boardService.listCri(cri));
+		model.addAttribute("list", boardService.listSearchCri(cri));
 		model.addAttribute("pageMaker", pageMaker);
 		return "/board/list";
 	}
@@ -40,6 +40,7 @@ public class BoardContoller {
 			, Integer bno
 			, Model model)throws Exception{
 		model.addAttribute("boardVO", boardService.read(bno));
+		log.info(cri.toString());
 		return "/board/read";
 	}
 	
@@ -64,6 +65,8 @@ public class BoardContoller {
 		boardService.modify(boardVO);
 		rttr.addFlashAttribute("msg", "SUCCESS");
 		rttr.addAttribute("bno", boardVO.getBno());
+		rttr.addAttribute("searchType", cri.getSearchType());
+		rttr.addAttribute("keyword", cri.getKeyword());
 		rttr.addAttribute("page", cri.getPage());
 		rttr.addAttribute("perPageNum", cri.getPerPageNum());
 		return "redirect:/board/readPage";
@@ -72,6 +75,8 @@ public class BoardContoller {
 	@RequestMapping(value="/remove", method = RequestMethod.POST)
 	public String removePOST(Integer bno, RedirectAttributes rttr, Criteria cri)throws Exception{
 		boardService.remove(bno);
+		rttr.addAttribute("searchType", cri.getSearchType());
+		rttr.addAttribute("keyword", cri.getKeyword());
 		rttr.addAttribute("page", cri.getPage());
 		rttr.addAttribute("perPageNum", cri.getPerPageNum());
 		return "redirect:/board/listPage";

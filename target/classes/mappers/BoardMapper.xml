@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="me.basicboard.www.persistence.BoardMapper">
+
+	<!-- <select id="getSearchBasicBoardList" resultType="boardVO">
+		SELECT * FROM basicboard
+		<include refid="search" />
+		ORDER BY bno desc
+		limit #{pageStart}, #{perPageNum}
+	</select>
+
+
+	<sql id="search">
+		<where>
+			<if test="searchType != null">
+
+				<if test="searchType == 't'.toString()">
+					title like CONCAT('%', #{keyword}, '%')
+				</if>
+				<if test="searchType == 'c'.toString()">
+					content like CONCAT('%', #{content}, '%')
+				</if>
+				<if test="searchType == 'tc'.toString()">
+					title like CONCAT('%', #{keyword}, '%')
+					OR
+					content like CONCAT('%', #{content}, '%')
+				</if>
+			</if>
+		</where>
+	</sql>
+ -->
+
+
+</mapper>

@@ -10,11 +10,11 @@
 <section>
 	<header>
 		<div class="searchGroup">
-			<select class="" name="">
-				<option value="" selected="selected">제목</option>
-				<option value="">내용</option>
-				<option value="">제목+내용</option>
-			</select> <input type="text" name="keyword" id="" class="keyword">
+			<select class="searchType" name="searchType">
+				<option value="t" selected="selected">제목</option>
+				<option value="c">내용</option>
+				<option value="tc">제목+내용</option>
+			</select> <input type="text" name="keyword" id="" class="keywordInp">
 			<button class="searchBtn">검색</button>
 			<button class="writeBtn">글쓰기</button>
 		</div>
@@ -86,19 +86,35 @@
 				function(event) {
 					event.preventDefault();
 					var bno = $(this).data("bno");
-					location.href = contextPath + '/board/readPage?bno=' + bno
-							+ "&page=" + page + "&perPageNum=" + perPageNum;
+				 	location.href = contextPath + '/board/readPage?bno=' + bno+"&"
+							+makeQuery(searchType, keyword, page, perPageNum); 
 				});
 
 		// 페이지 네이션 이벤트처리
 		$(".pagenation").on("click", "li a", function(event){
 			event.preventDefault();
 			var pageValue = $(this).attr("href");		
-			location.href = contextPath + '/board/listPage?'
-					+"&page=" + pageValue + "&perPageNum=" + perPageNum;
+			var url = contextPath + '/board/listPage?'
+			+makeQuery(searchType, keyword, pageValue, perPageNum);
+			location.href = url;
 		});
 		
-	
+		$(".searchBtn").on("click", function(){
+			var searchType = $(".searchType").val();
+			var keyword = $(".keywordInp").val();
+			location.href = contextPath + '/board/listPage?'
+					+makeQuery(searchType, keyword, page, perPageNum);
+				
+		});
+		
+		function makeQuery(searchType, keyword, page, perPageNum){
+			var query = "searchType="+searchType
+			+"&keyword="+keyword
+			+"&page="+page
+			+"&perPageNum="+perPageNum;
+			return query;
+		}
+		
 	
 	});
 </script>

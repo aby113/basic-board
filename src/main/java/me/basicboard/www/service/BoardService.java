@@ -9,7 +9,9 @@ public interface BoardService {
 	
 	public List<BoardVO> listCri(Criteria cri)throws Exception;
 	
-	public int getBoardCount()throws Exception;
+	public List<BoardVO> listSearchCri(Criteria cri)throws Exception;
+	
+	public int getBoardCount(Criteria cri)throws Exception;
 	
 	public BoardVO read(Integer bno)throws Exception;
 	

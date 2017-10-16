@@ -69,8 +69,6 @@ public class PageMaker {
 		return cri;
 	}
 	
-
-	
 	@Override
 	public String toString() {
 		return "PageMaker [totalCount=" + totalCount + ", startPage="
