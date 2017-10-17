@@ -15,6 +15,7 @@ import lombok.extern.java.Log;
 import me.basicboard.www.domain.BoardVO;
 import me.basicboard.www.domain.Criteria;
 import me.basicboard.www.persistence.BoardMapper;
+import me.basicboard.www.persistence.MemberMapper;
 
 @RunWith(SpringJUnit4ClassRunner.class)
 @ContextConfiguration(
@@ -26,6 +27,9 @@ public class DaoTest {
 	@Inject
 	private BoardMapper boardMapper; 
 
+	@Inject
+	private MemberMapper memberMapper;
+	
 	private Criteria cri;
 	private BoardVO boardVO;
 	
@@ -34,6 +38,8 @@ public class DaoTest {
 		cri = new Criteria();
 		boardVO = new BoardVO();
 	}
+	
+	
 	
 	@Test
 	public void testList()throws Exception{
@@ -97,5 +103,7 @@ public class DaoTest {
 		}
 	
 	}
+	
+	
 	
 }

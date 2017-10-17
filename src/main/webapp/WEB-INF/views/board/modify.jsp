@@ -51,7 +51,13 @@
 					location.href = url;
 
 				});
-
+		function makeQuery(searchType, keyword, page, perPageNum){
+			var query = "searchType="+searchType
+			+"&keyword="+keyword
+			+"&page="+page
+			+"&perPageNum="+perPageNum;
+			return query;
+		}
 	});
 </script>
 </body>

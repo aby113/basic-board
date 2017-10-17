@@ -9,6 +9,7 @@
 	<header></header>
 	<article class="">
 		<form action="<c:url value='/board/write' />" method="post">
+			<input type="hidden" name="writer" value="${login.id}">
 			<div class="header">
 				<div class="">
 					제목 <input type="text" name="title" id="" class="title">

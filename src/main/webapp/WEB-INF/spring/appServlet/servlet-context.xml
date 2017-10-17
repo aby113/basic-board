@@ -21,6 +21,18 @@
 		<beans:property name="suffix" value=".jsp" />
 	</beans:bean>
 	
+	<beans:bean id="sampleInterceptor" class="me.basicboard.www.interceptor.SampleInterceptor" />	
+	<interceptors>
+		<interceptor>
+			<mapping path="/board/writePage" />		
+			<mapping path="/board/modifyPage"/>
+			<mapping path="/board/write"/>
+			<mapping path="/board/modify"/>
+			<mapping path="/board/remove"/>
+			<beans:ref  bean="sampleInterceptor"/>
+		</interceptor>
+	</interceptors>
+	
 	<context:component-scan base-package="me.basicboard.www.*" />
 	
 	

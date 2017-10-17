@@ -27,6 +27,10 @@ div#linkbox{
 span#loginBox{
   float: right;
 }
+span.loginMsg{
+	color: white;
+    margin-right: 150px;
+}
 a{
   text-decoration: none;
 }

@@ -34,7 +34,6 @@ public interface BoardMapper {
 	@Delete("DELETE FROM basicboard WHERE bno = #{bno}")
 	public void deleteBasicboard(Integer bno)throws Exception;
 	
-	//public List<BoardVO> getSearchBasicBoardList(Criteria cri)throws Exception;
 	@SelectProvider(type=SampleProvider.class, method = "search")
 	public List<BoardVO> getSearchBasicBoardList(Criteria cri)throws Exception;
 	

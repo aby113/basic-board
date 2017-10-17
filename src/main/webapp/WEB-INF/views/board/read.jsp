@@ -23,9 +23,11 @@
         </div>
         <div class="footer">
             <div class="btnGroup">
-                  <button class="listBtn">목록</button>
-                  <button class="rmBtn">글삭제</button>
-                  <button class="modBtn">글수정</button>
+                  <c:if test="${login.id eq boardVO.writer}">
+                  	<button class="rmBtn">글삭제</button>
+                 	<button class="modBtn">글수정</button>
+                  </c:if>
+				   <button class="listBtn">목록</button>
             </div>
             </div>
       </article>

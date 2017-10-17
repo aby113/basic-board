@@ -7,7 +7,7 @@ $(function(){
 	});
 	
 	$(".writeBtn").on("click", function(){
-		location.href = contextPath + "/writePage";
+		location.href = contextPath + "/board/writePage";
 	});
 	
 	$(".modBtn").on("click", function(){

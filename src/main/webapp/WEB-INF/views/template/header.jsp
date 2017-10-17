@@ -5,6 +5,8 @@
 <!DOCTYPE html>
 <html lang="ko">
 <head>
+<script
+	src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script>
 <script type="text/javascript">
 var contextPath = "${pageContext.request.contextPath}";
 var bno = "${boardVO.bno}";
@@ -12,9 +14,56 @@ var page = "${cri.page}";
 var perPageNum = "${cri.perPageNum}";
 var searchType = "${cri.searchType}";
 var keyword = "${cri.keyword}";
+var msg = "${param.msg}";
+$(function(){
+	
+
+	if(msg == "LOGIN_FAIL")alert("로그인 하세요");
+	console.log(msg);
+	
+	$("#loginBtn").on("click", function(){
+		console.log("로그인버튼 클릭");
+		var email = $("#email").val();
+		var pw = $("#pw").val();
+		console.log("email:"+email+", pw:" + pw);
+		$.ajax({
+			type:'post',			
+			url:contextPath + "/member/login",
+			headers:{
+				"Content-Type": "application/json",
+				"X-HTTP-Method-Override": "POST"
+			},
+			dataType:'text',
+			data:JSON.stringify({
+				email : email,
+				pw : pw
+			}),
+			success:function(){
+				 $("#email").val("");
+				 $("#pw").val("");
+				 alert("로그인 성공");
+				 location.reload();
+			},
+			statusCode:{
+				400:function(){
+					 $("#email").val("");
+					 $("#pw").val("");
+					alert("로그인 실패");
+				}
+			} 
+			
+			
+			
+		});
+		
+		
+	});
+	
+	
+	
+});
+
 </script>
-<script
-	src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script>
 <link rel="stylesheet" href="<c:url value='/resources/css/board.css' />">
 <link rel="stylesheet" href="<c:url value='${cssPath}' />">
 <c:if test="${cssPath2 ne null}">
@@ -31,11 +80,19 @@ var keyword = "${cri.keyword}";
 		<header class="header">
 			<nav>
 
-				<a href="#">HOME</a> <a href="<c:url value='/board/listPage'/>">toyProject#board</a> <span
-					id="loginBox"> <input type="text" id="email"
-					placeholder="email"> <input type="text" name=""
-					id="password" placeholder="비밀번호">
+				<a href="#">HOME</a> 
+				<a href="<c:url value='/board/listPage'/>">toyProject#board</a> 
+				<span
+					id="loginBox">
+				<c:if test="${login eq null}">	
+					<input type="text" id="email" name="email"
+					placeholder="email"> <input type="text" name="pw"
+					id="pw" placeholder="비밀번호">
 					<button id="loginBtn">로그인</button>
+				</c:if>
+				<c:if test="${login ne null}">
+					<span class="loginMsg">아이디 : ${login.id}님 환영합니다.</span>
+				</c:if>
 				</span>
 
 			</nav>

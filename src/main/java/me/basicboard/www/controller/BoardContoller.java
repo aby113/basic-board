@@ -23,6 +23,11 @@ public class BoardContoller {
 	@Inject
 	private BoardService boardService;
 	
+	@RequestMapping(value="/writePage", method = RequestMethod.GET)
+	public String writePage()throws Exception{
+		return "/board/write";
+	}
+	
 	@RequestMapping(value="/listPage", method = RequestMethod.GET)
 	public String list(@ModelAttribute("cri") Criteria cri, Model model)throws Exception{
 		
