@@ -31,4 +31,19 @@ $(function(){
 		return query;
 	}
 	
+	function sendAjax(url, paramObj, succFnc){
+		
+		$.ajax({
+			type:'post',
+			url:url,
+			headers : {
+				"Content-Type" : "application/json",
+				"X-HTTP-Method-Override" : "POST"
+			},
+			dataType:'text',
+			data:JSON.stringify(paramObj),
+			success:succFnc
+		});
+		
+	}
 });

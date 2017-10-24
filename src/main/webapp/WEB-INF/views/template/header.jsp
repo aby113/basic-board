@@ -18,8 +18,11 @@ var msg = "${param.msg}";
 $(function(){
 	
 
-	if(msg == "LOGIN_FAIL")alert("로그인 하세요");
-	console.log(msg);
+	if(msg == "LOGIN_FAIL"){
+		alert("로그인 하세요");
+		console.log(msg);
+		location.href = contextPath + "/board/listPage";
+	}
 	
 	$("#loginBtn").on("click", function(){
 		console.log("로그인버튼 클릭");
@@ -51,9 +54,7 @@ $(function(){
 					alert("로그인 실패");
 				}
 			} 
-			
-			
-			
+				
 		});
 		
 		
@@ -98,7 +99,12 @@ $(function(){
 			</nav>
 		</header>
 		<nav class="side">
-			<div id="linkbox">
-				<a href="<c:url value='/board/listPage'/>">회원게시판</a>
-			</div>
+				<ul>
+					<li>
+						<a href="<c:url value='/board/listPage'/>">회원게시판</a>
+					</li>
+					<li>
+						<a href="<c:url value='/member/joinPage'/>">회원가입</a>
+					</li>
+				</ul>
 		</nav>
