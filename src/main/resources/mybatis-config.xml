@@ -6,6 +6,7 @@
 	<typeAliases>
 		<typeAlias alias="cri" type="me.basicboard.www.domain.Criteria" />
 		<typeAlias alias="boardVO" type="me.basicboard.www.domain.BoardVO" />
+		<typeAlias type="memberVO"/>
 	</typeAliases>
 
 </configuration>
